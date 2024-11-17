@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48810e48cd049f4b886ac5e56423e13, type: 3}
+  m_Name: Biomes
+  m_EditorClassIdentifier: 
+  biomes:
+  - id: cave
+    displayName: "\u6D1E\u7A9F"
+    groundTile: {fileID: 11400000, guid: 4b3916e22de9626428b0d672f6cd3f74, type: 2}
+    wallTile: {fileID: 11400000, guid: b82b3675fe786234c8aab781eab9da32, type: 2}
+    structureData:
+    - id: ore
+      frequency: 1
+    structureFrequency: 0.5
+  - id: ocean
+    displayName: "\u6D77"
+    groundTile: {fileID: 11400000, guid: efe653897ddc65b4286cb779545cdf3f, type: 2}
+    wallTile: {fileID: 11400000, guid: b82b3675fe786234c8aab781eab9da32, type: 2}
+    structureData: []
+    structureFrequency: 0
