@@ -11,7 +11,7 @@ using UnityEngine.Tilemaps;
 public class Biome
 {
     //参照用ID
-    public string id;
+    public string ID;
     //表示名
     public string displayName;
     //地面として生成するタイル
@@ -58,7 +58,7 @@ public class Biome
             prob += structureData[i].frequency / GetTotalFrequency();
             if(rnd < prob * 100.0f)
             {
-                return structureData[i].id;
+                return structureData[i].ID;
             }
         }
         return null;
@@ -68,13 +68,13 @@ public class Biome
 public class StructureGenerateData
 {
     //構造物参照用ID
-    public string id;
+    public string ID;
     //生成頻度
     public int frequency;
 
     public StructureGenerateData(string name, int frequency)
     {
-        this.id = name;
+        this.ID = name;
         this.frequency = frequency;
     }
 }
@@ -86,7 +86,7 @@ public class Biomes : ScriptableObject
     {
         foreach(Biome biome in biomes)
         {
-            if(biome.id == id) return biome;
+            if(biome.ID == id) return biome;
         }
         return null;
     }

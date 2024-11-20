@@ -8,7 +8,7 @@ using UnityEngine.Tilemaps;
 public class Structure
 {
     //参照用ID
-    public string id;
+    public string ID;
     //表示名
     public string displayName;
     //構造物の表示タイル
@@ -52,7 +52,7 @@ public class Structures : ScriptableObject
     {
         foreach (Structure structure in structures)
         {
-            if (structure.id == id) return structure;
+            if (structure.ID == id) return structure;
         }
         return null;
     }

@@ -33,6 +33,10 @@ public class Player_Bag : MonoBehaviour
         return isOpen;
     }
     public void AddItem(Item item) { }
+    public Item GetItem(int index)
+    {
+        return items[index];
+    }
 
     // Update is called once per frame
     void Update()
