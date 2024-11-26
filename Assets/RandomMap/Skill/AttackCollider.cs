@@ -20,6 +20,8 @@ public class AttackCollider : MonoBehaviour
     float colliderRadius;
     Vector2 colliderSize;
 
+    Vector2 targetPosition;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
