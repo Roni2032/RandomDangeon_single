@@ -6,6 +6,7 @@ TagManager:
   tags:
   - tileMap
   - MasterData
+  - Enemy
   layers:
   - Default
   - TransparentFX

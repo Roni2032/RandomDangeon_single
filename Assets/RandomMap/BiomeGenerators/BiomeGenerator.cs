@@ -65,7 +65,7 @@ public class BiomeGenerator : MonoBehaviour
     {
         if (pos.y < 1 || pos.y >= map.Count - 1) return false;
         if (pos.x < 1 || pos.x >= map[pos.y].Count - 1) return false;
-        if (map[pos.y][pos.x].blockType != BlockType.Wall) return false;
+        if (map[pos.y][pos.x].blockType != BlockType.NoneDefine) return false;
         if(!ExpandRule(map)) return false;
         if (Random.Range(0, 100) >= expandProb) return false;
 

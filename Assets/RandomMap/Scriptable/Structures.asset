@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Structures
   m_EditorClassIdentifier: 
   structures:
-  - id: ore
+  - ID: ore
     displayName: "\u9271\u77F3"
     tile: {fileID: 11400000, guid: bb42fab709a1d0f45b699709dba74c40, type: 2}
     collider: 1
