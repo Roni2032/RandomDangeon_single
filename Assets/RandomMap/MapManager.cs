@@ -8,6 +8,7 @@ using UnityEngine.Tilemaps;
 
 public enum BlockType
 {
+    NoneDefine,
     Creating,
     Ground,
     Wall,
@@ -100,7 +101,7 @@ public class MapManager : MonoBehaviour
             mapDatas.Add(new List<MapData>());
             for (int j = 0; j < mapSize.x; j++)
             {
-                mapDatas[i].Add(new MapData(BlockType.Wall,wall));
+                mapDatas[i].Add(new MapData(BlockType.NoneDefine,null));
             }
         }
 
@@ -135,6 +136,10 @@ public class MapManager : MonoBehaviour
             for (int j = 0; j < mapDatas[i].Count; j++)
             {
                 Vector2Int drawCellPos = new Vector2Int(j, i);
+                if (mapDatas[i][j].blockType == BlockType.NoneDefine)
+                {
+                    mapDatas[i][j].SetTile(BlockType.Wall, wall);
+                }
                 switch (mapDatas[i][j].blockType)
                 {
                     case BlockType.Ground:
