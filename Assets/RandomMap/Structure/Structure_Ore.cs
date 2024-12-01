@@ -18,9 +18,10 @@ public class Structure_Ore : StructureGenerator
             new List<int>{1,1}
         }
     };
-    public override void Select()
+    public override void Select(List<List<MapData>> map, Vector2Int core, Player player)
     {
         Debug.Log("zÎ‚ğˆê‚Âæ“¾‚µ‚Ü‚µ‚½");
+        mapManager.DestroyStructure(core);
     }
 
     public override void Create(List<List<MapData>> map, Vector2Int core, TileBase structureTile, TileBase GroundTile)

@@ -16,7 +16,7 @@ public class Structure
     //ìñÇΩÇËîªíËÇÃóLñ≥
     public bool collider;
     //ëIëÇµÇΩç€ÇÃä÷êî
-    Action selectAction;
+    Action<List<List<MapData>>, Vector2Int, Player> selectAction;
     //ê∂ê¨éûÇÃä÷êî
     Action<List<List<MapData>>, Vector2Int, TileBase, TileBase> generator;
     public void SetGenerator(Action<List<List<MapData>>, Vector2Int, TileBase, TileBase> action)
@@ -31,17 +31,17 @@ public class Structure
     {
         generator.Invoke(map, core, tile,ground);
     }
-    public void SetSelect(Action action)
+    public void SetSelect(Action<List<List<MapData>>, Vector2Int, Player> action)
     {
         selectAction += action;
     }
-    public void DisbleSelect(Action action)
+    public void DisbleSelect(Action<List<List<MapData>>, Vector2Int, Player> action)
     {
         selectAction -= action;
     }
-    public virtual void Select()
+    public virtual void Select(List<List<MapData>> map, Vector2Int pos,Player player)
     {
-        selectAction.Invoke();
+        selectAction.Invoke(map,pos,player);
     }
 }
 

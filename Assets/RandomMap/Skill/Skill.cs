@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class Skill
 {
-    
-    public virtual void Trigger(Entity_Battle entity) { } 
+    public virtual void Trigger(Entity entity) { } 
 }
