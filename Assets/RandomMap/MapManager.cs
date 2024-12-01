@@ -5,11 +5,11 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.Tilemaps;
+using static UnityEditor.PlayerSettings;
 
 public enum BlockType
 {
     NoneDefine,
-    Creating,
     Ground,
     Wall,
     Goal,
@@ -54,10 +54,22 @@ public class MapManager : MonoBehaviour
     //マップデータ
     List<List<MapData>> mapDatas = new List<List<MapData>>();
 
-    public MapData GetMapData(Vector2 vec)
+    public List<List<MapData>> GetMapData()
     {
-        Vector2Int mapPos = GetMapPos(vec);
+        return mapDatas;
+    }
+    public MapData GetMapData(Vector2 worldPos)
+    {
+        Vector2Int mapPos = GetMapPos(worldPos);
         return mapDatas[mapPos.y][mapPos.x];
+    }
+    public MapData GetMapData(Vector2Int pos)
+    {
+        return mapDatas[pos.y][pos.x];
+    }
+    public Vector2Int GetMapIndex(Vector2 pos)
+    {
+        return GetMapPos(pos);
     }
     public Vector2 GetLeftTop()
     {
@@ -227,10 +239,33 @@ public class MapManager : MonoBehaviour
         Biome biome = biomes.GetBiome(name);
         biome.Generator(mapDatas, core, biome.groundTile, biome.wallTile);
     }
+    public void DestroyStructure(Vector2Int pos)
+    {
+        var data = mapDatas[pos.y][pos.x];
+        if (data.structure != null)
+        {
+            if (data.structure.collider)
+            {
+                Vector3Int tilePos = tileMap_Structures_Collider.WorldToCell(GetWorldPos(pos + (Vector2)tileMap_Structures_Collider.tileAnchor));
+                tileMap_Structures_Collider.SetTile(tilePos, null);
+            }
+            else
+            {
+                Vector3Int tilePos = tileMap_Structures.WorldToCell(GetWorldPos(pos + (Vector2)tileMap_Structures.tileAnchor));
+                tileMap_Structures.SetTile(tilePos, null);
+            }
+        }
+        mapDatas[pos.y][pos.x].structure = null;
+    }
+    public void SetStructure(Structure structure,Vector2Int pos)
+    {
+
+    }
 }
 
 public class MapData
 {
+    public BlockType pBlockType;
     public BlockType blockType;
     public TileBase groundTile;
 

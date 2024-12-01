@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public class Enemy : Entity_Battle
+public class Enemy : Entity
 {
     GameObject player;
     [SerializeField]
