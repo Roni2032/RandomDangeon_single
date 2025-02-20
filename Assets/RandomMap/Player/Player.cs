@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Player : Entity
@@ -6,6 +7,8 @@ public class Player : Entity
     float moveSpeed;
     [SerializeField]
     MapManager mapManager;
+    [SerializeField]
+    GameObject foucusObject;
 
     Rigidbody2D rb;
     SpriteRenderer spriteRndr;
@@ -37,8 +40,10 @@ public class Player : Entity
         rb = GetComponent<Rigidbody2D>();
         spriteRndr = GetComponent<SpriteRenderer>();
         bag = GetComponent<Player_Bag>();
-    }
 
+
+    }
+  
     // Update is called once per frame
     void Update()
     {
@@ -72,7 +77,7 @@ public class Player : Entity
         Vector3 worldFoucusPosition = transform.position + beforeVelocity;
         foucus = mapManager.GetMapIndex(new Vector2(worldFoucusPosition.x, worldFoucusPosition.y));
 
-        //foucusObject.transform.position = new Vector3(Mathf.Floor(worldFoucusPosition.x) + 0.5f, Mathf.Floor(worldFoucusPosition.y) + 0.5f, Mathf.Floor(worldFoucusPosition.z));
+        foucusObject.transform.position = new Vector3(Mathf.Floor(worldFoucusPosition.x) + 0.5f, Mathf.Floor(worldFoucusPosition.y) + 0.5f, Mathf.Floor(worldFoucusPosition.z));
 
 
         MapData mapData = mapManager.GetMapData(foucus);

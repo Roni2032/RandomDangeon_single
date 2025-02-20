@@ -8,7 +8,7 @@ public class Slot : MonoBehaviour
     Sprite itemSprite;
 
     Image slotImage;
-
+    
     public void SetLookUpIndex(int index)
     {
         lookIndex = index;
